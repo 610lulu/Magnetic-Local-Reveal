@@ -4,7 +4,8 @@ Minimal physical validation for one question:
 
 > Can magnetic proximity produce a clear local light reveal?
 
-#接上一个实验
+## 接上一个实验，本文档仅展示V2仓库【测试磁性揭示状态是否成功】这一实验的过程：
+
 ## 一、KY-024 霍尔传感器接线（3根）
 
 | KY-024引脚 | 连接ESP32 |
@@ -34,7 +35,9 @@ Minimal physical validation for one question:
 
 ## 四、接好后怎么运行？
 
-1. 断开USB电源，按上面的表格接好线。
-2. 检查没有接错3V3和GND，再连接USB。
-3. Arduino IDE上传上一条给你的简化版数字霍尔程序。
-4. 用一块小磁铁靠近KY-024，观察LED是否变亮，移开后是否变暗。
+1. 接好线后，用USB连接ESP32和电脑。
+2. 在 Arduino IDE 中上传上面的程序。
+3. 打开串口监视器，设置为 115200。
+4. 用小磁铁靠近KY-024模块。
+5. 观察LED是否从暗光变为亮光，移开是否恢复。
+如果亮暗反过来了，把代码中的 MAGNET_LEVEL = LOW 改成 HIGH；如果一直不触发，尝试调节KY-024的蓝色电位器，并检查DO信号。
