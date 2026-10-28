@@ -7,16 +7,12 @@ Minimal physical validation for one question:
 #接上一个实验
 ## 一、KY-024 霍尔传感器接线（3根）
 
-[KY-024 Linearer, magnetischer Hall-Sensor | Joy-IT](https://images.openai.com/static-rsc-4/KqlX6Eu6Kp1mjB0EO69RHK0R3yiow4-uUKvCflT88fGVjo5qr7I0ZPBChDTrVTTzNHd7TUdFz3nWA89pzVPtFPJKNO0aRtdbNN9U0wZUx0DrAWQ4xuwh8bksWE2ksVvuuiEToCErakGiLegP4KdEr5SlJ0swoPsBQraDSes5Wwk?purpose=inline)
-
 | KY-024引脚 | 连接ESP32 |
 | -------- | ------- |
 | VCC / +  | 3V3     |
 | GND / G  | GND     |
 | DO / D0  | GPIO 34 |
 | AO       | 不接      |
-
-注意：按照模块实际印刷的引脚名称连接，不要根据照片猜测引脚顺序。
 
 ## 二、原来的KY-016 LED接线（4根）
 
@@ -33,7 +29,8 @@ Minimal physical validation for one question:
 
 ## 三、完整连接关系
 
-逻辑连接示意，不代表真实板上的引脚物理位置。两块模块共用ESP32的GND。
+<img width="892" height="638" alt="{49FA5030-23CB-445F-B697-E013BA2570D8}" src="https://github.com/user-attachments/assets/adaca3d1-6ab1-4765-9baa-3694deca18d0" />
+
 
 ## 四、接好后怎么运行？
 
@@ -42,20 +39,6 @@ Minimal physical validation for one question:
 3. Arduino IDE上传上一条给你的简化版数字霍尔程序。
 4. 用一块小磁铁靠近KY-024，观察LED是否变亮，移开后是否变暗。
 
-特别提醒：你 [Magnetic-Local-Reveal 仓库](https://github.com/610lulu/Magnetic-Local-Reveal?utm_source=chatgpt.com)里目前还是读取 `analogRead()` 的旧程序。使用KY-024的DO引脚时，要换成上一条的 `digitalRead()` 简化代码。
-
-如果磁铁靠近后没有反应，先调节KY-024上的蓝色小旋钮，并检查数字触发电平是否需要从 `HIGH` 改成 `LOW`。
-
-最终效果：磁铁远离 → LED暗；磁铁靠近 → LED亮。 这就完成你的第二阶段磁感应触发验证。
-The test maps a **linear Hall sensor** reading to the brightness of one LED:
-
-```text
-magnet far away  ->  lower Hall reading  ->  dim baseline
-magnet approaches ->  stronger reading    ->  brighter LED
-magnet leaves     ->  LED returns to dim baseline
-```
-
-This repository intentionally tests only **magnetic proximity → LED brightness**. It does not include Thermal State, multiple LEDs, or spatial propagation. Those can be integrated after this single-channel behavior is physically verified.
 
 ## Hardware
 
