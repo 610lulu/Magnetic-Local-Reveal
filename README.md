@@ -4,7 +4,7 @@ Minimal physical validation for one question:
 
 > Can magnetic proximity produce a clear local light reveal?
 
-## 接上一个实验，本文档仅展示V2仓库【测试磁性揭示状态是否成功】这一实验的过程：
+接上一个实验（LED实验），README仅展示V2仓库【测试磁性揭示状态是否成功】这一实验的过程：
 
 ## 一、KY-024 霍尔传感器接线（3根）
 
@@ -33,7 +33,7 @@ Minimal physical validation for one question:
 <img width="892" height="638" alt="{49FA5030-23CB-445F-B697-E013BA2570D8}" src="https://github.com/user-attachments/assets/adaca3d1-6ab1-4765-9baa-3694deca18d0" />
 
 
-## 四、接好后怎么运行？
+## 四、接好后的运行
 
 1. 接好线后，用USB连接ESP32和电脑。
 2. 在 Arduino IDE 中上传上面的程序。
